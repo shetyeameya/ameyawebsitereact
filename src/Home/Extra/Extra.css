@@ -1,0 +1,42 @@
+.containerExtra {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10vh;
+  color: white;
+}
+
+.imgname {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 20px;
+}
+.imgClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  height: 320px;
+}
+
+@media only screen and (max-width: 768px) {
+  .containerExtra {
+    margin-top: 1vh;
+    min-height: fit-content !important;
+  }
+  .imgname {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    text-align: center;
+  }
+}
