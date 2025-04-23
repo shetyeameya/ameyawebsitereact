@@ -1,0 +1,235 @@
+/* Sticky Note Card Styles */
+.sticky-note-card {
+  background-color: #fff9c4; /* Light yellow */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  width: 320px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #f9d978;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.sticky-note-card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 25px 25px 0;
+  border-color: transparent #f9d978 transparent transparent;
+  z-index: 1;
+}
+
+.sticky-note-card:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  background-color: #ffee58; /* Slightly darker yellow on hover */
+}
+
+.sticky-note-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sticky-note-image {
+  width: 100%;
+  height: 160px;
+  /* object-fit: cover; */
+  border-radius: 8px;
+  margin-bottom: 12px;
+  /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); */
+}
+
+.sticky-note-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #694c00;
+  margin-bottom: 8px;
+  font-family: "Kalam", cursive, "Comic Sans MS", sans-serif;
+}
+
+.sticky-note-description {
+  font-size: 0.875rem;
+  color: #5d4307;
+  margin-bottom: 16px;
+  flex-grow: 1;
+  font-family: "Kalam", cursive, "Comic Sans MS", sans-serif;
+}
+
+/* Tags styling - for projects */
+.sticky-note-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.sticky-note-tag {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 1px dashed #8d6e00;
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #694c00;
+  font-family: "Kalam", cursive, "Comic Sans MS", sans-serif;
+}
+
+.sticky-note-button {
+  display: inline-block;
+  background-color: #ffca28; /* Amber */
+  color: #664500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 6px -1px rgba(102, 69, 0, 0.1);
+  font-family: "Kalam", cursive, "Comic Sans MS", sans-serif;
+  align-self: flex-start;
+}
+
+.sticky-note-button:hover {
+  background-color: #ffb300; /* Darker amber */
+  box-shadow: 0 6px 8px -1px rgba(102, 69, 0, 0.2);
+}
+
+/* Variations for different colors */
+.sticky-note-card.blue {
+  background-color: #bbdefb; /* Light blue */
+  border-color: #90caf9;
+}
+
+.sticky-note-card.blue:before {
+  border-color: transparent #90caf9 transparent transparent;
+}
+
+.sticky-note-card.blue:hover {
+  background-color: #90caf9; /* Slightly darker blue on hover */
+}
+
+.sticky-note-card.blue .sticky-note-title,
+.sticky-note-card.blue .sticky-note-description {
+  color: #01579b;
+}
+
+.sticky-note-card.blue .sticky-note-tag {
+  border-color: #01579b;
+  color: #01579b;
+}
+
+.sticky-note-card.blue .sticky-note-button {
+  background-color: #42a5f5;
+  color: #01579b;
+}
+
+.sticky-note-card.blue .sticky-note-button:hover {
+  background-color: #1e88e5;
+}
+
+.sticky-note-card.green {
+  background-color: #c8e6c9; /* Light green */
+  border-color: #a5d6a7;
+}
+
+.sticky-note-card.green:before {
+  border-color: transparent #a5d6a7 transparent transparent;
+}
+
+.sticky-note-card.green:hover {
+  background-color: #a5d6a7; /* Slightly darker green on hover */
+}
+
+.sticky-note-card.green .sticky-note-title,
+.sticky-note-card.green .sticky-note-description {
+  color: #1b5e20;
+}
+
+.sticky-note-card.green .sticky-note-tag {
+  border-color: #1b5e20;
+  color: #1b5e20;
+}
+
+.sticky-note-card.green .sticky-note-button {
+  background-color: #66bb6a;
+  color: #1b5e20;
+}
+
+.sticky-note-card.green .sticky-note-button:hover {
+  background-color: #43a047;
+}
+
+.sticky-note-card.pink {
+  background-color: #f8bbd0; /* Light pink */
+  border-color: #f48fb1;
+}
+
+.sticky-note-card.pink:before {
+  border-color: transparent #f48fb1 transparent transparent;
+}
+
+.sticky-note-card.pink:hover {
+  background-color: #f48fb1; /* Slightly darker pink on hover */
+}
+
+.sticky-note-card.pink .sticky-note-title,
+.sticky-note-card.pink .sticky-note-description {
+  color: #880e4f;
+}
+
+.sticky-note-card.pink .sticky-note-tag {
+  border-color: #880e4f;
+  color: #880e4f;
+}
+
+.sticky-note-card.pink .sticky-note-button {
+  background-color: #ec407a;
+  color: #880e4f;
+}
+
+.sticky-note-card.pink .sticky-note-button:hover {
+  background-color: #d81b60;
+}
+
+.sticky-note-card.purple {
+  background-color: #e1bee7; /* Light purple */
+  border-color: #ce93d8;
+}
+
+.sticky-note-card.purple:before {
+  border-color: transparent #ce93d8 transparent transparent;
+}
+
+.sticky-note-card.purple:hover {
+  background-color: #ce93d8; /* Slightly darker purple on hover */
+}
+
+.sticky-note-card.purple .sticky-note-title,
+.sticky-note-card.purple .sticky-note-description {
+  color: #4a148c;
+}
+
+.sticky-note-card.purple .sticky-note-tag {
+  border-color: #4a148c;
+  color: #4a148c;
+}
+
+.sticky-note-card.purple .sticky-note-button {
+  background-color: #ab47bc;
+  color: #4a148c;
+}
+
+.sticky-note-card.purple .sticky-note-button:hover {
+  background-color: #8e24aa;
+}
+
+/* Add handwritten font support */
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");

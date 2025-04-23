@@ -1,43 +1,67 @@
-import { theme, ConfigProvider } from "antd";
-import React from "react";
-import Home from "./Home/LayoutView";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Layout } from "antd";
-import "./App.css";
-import { DataProvider } from "./Context/DataContext";
+import React, { useEffect } from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import Works from "./components/Works";
+import Skills from "./components/Skills";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import Enhancedabout from "./components/EnhancedAbout";
+import TestimonialsMedia from "./components/Testimonials";
 
-const App: React.FC = () => {
-  const { Content } = Layout;
+function App() {
+  useEffect(() => {
+    const anchors = document.querySelectorAll('a[href^="#"]');
+
+    anchors.forEach((anchor) => {
+      const handleClick = (e: Event) => {
+        e.preventDefault();
+
+        const target = e.currentTarget as HTMLAnchorElement;
+        const targetId = target.getAttribute("href");
+        if (!targetId) return;
+
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+
+        window.scrollTo({
+          top:
+            targetElement instanceof HTMLElement ? targetElement.offsetTop : 0,
+          behavior: "smooth",
+        });
+      };
+
+      anchor.addEventListener("click", handleClick);
+
+      // Cleanup (important for React useEffect)
+      return () => {
+        anchor.removeEventListener("click", handleClick);
+      };
+    });
+
+    document.title = "Ameya Ravindra Shetye | Personal Portfolio";
+
+    const titleElement = document.querySelector("title");
+    if (titleElement) {
+      titleElement.removeAttribute("data-default");
+    }
+  }, []);
+
   return (
-    <DataProvider>
-      <Router>
-        <ConfigProvider
-          theme={{
-            algorithm: [theme.darkAlgorithm],
-            token: {
-              // Seed Token
-              colorPrimary: "#FFC436",
-              borderRadius: 2,
-              fontFamily: "TiltNeon",
-              fontSize: 20,
-              // Alias Token
-              colorBgContainer: "#f6ffed",
-            },
-          }}
-        >
-          <Layout className="layout" style={{ minHeight: "100%" }}>
-            <Content style={{ padding: "0 10px", marginTop: 5 }}>
-              <Routes>
-                <Route path="/">
-                  <Route index element={<Home />} />
-                </Route>
-              </Routes>
-            </Content>
-          </Layout>
-        </ConfigProvider>
-      </Router>
-    </DataProvider>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <Works />
+        <Skills />
+        {/* <About /> */}
+        <Enhancedabout />
+        {/* <TestimonialsMedia /> */}
+        <Contact />
+      </main>
+      <Footer />
+    </div>
   );
-};
+}
 
 export default App;

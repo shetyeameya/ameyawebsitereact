@@ -1,0 +1,568 @@
+/* Carousel Styles */
+.education-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education-slide {
+  width: 100%;
+  height: 320px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: var(--gray-50);
+  transition: all 0.3s ease;
+}
+
+.dark .education-slide {
+  background-color: var(--dark-blue);
+}
+
+.education-card {
+  padding: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.education-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+.dark .education-title {
+  color: var(--white);
+}
+
+.education-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+.dark .education-content {
+  color: var(--gray-300);
+}
+
+.education-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.education-detail-item {
+  padding: 0.75rem;
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--primary-500);
+}
+
+.dark .education-detail-item {
+  background-color: var(--dark-blue-lighter);
+  border-left-color: var(--primary-400);
+}
+
+.education-detail-item h5 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--gray-900);
+}
+
+.dark .education-detail-item h5 {
+  color: var(--white);
+}
+
+.education-detail-item p {
+  color: var(--gray-600);
+  font-size: 0.9375rem;
+}
+
+.dark .education-detail-item p {
+  color: var(--gray-400);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.carousel-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--gray-700);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark .carousel-arrow {
+  background-color: var(--dark-blue-lighter);
+  color: var(--gray-300);
+}
+
+.carousel-arrow:hover {
+  background-color: var(--primary-100);
+  color: var(--primary-600);
+  transform: scale(1.05);
+}
+
+.dark .carousel-arrow:hover {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: var(--primary-400);
+}
+
+.carousel-indicators {
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--primary-dark);
+  border-radius: 10%;
+  border: 2px solid transparent;
+  padding: 1%;
+}
+
+.carousel-indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--dark-blue);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dark .carousel-indicator {
+  background-color: var(--dark-blue);
+}
+
+.carousel-indicator.active {
+  background-color: var(--primary-light);
+  transform: scale(1.2);
+}
+
+.carousel-indicator.inactive {
+  background-color: var(--gray-500);
+  transform: scale(0.8);
+}
+
+.dark .carousel-indicator.active {
+  background-color: var(--primary-light);
+  transform: scale(1.2);
+}
+
+.dark .carousel-indicator.inactive {
+  background-color: var(--gray-500);
+  transform: scale(0.8);
+}
+
+/* Project modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-container {
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  max-width: 48rem;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+}
+
+.component-container {
+  max-width: 64rem;
+  height: 80vh;
+}
+
+.dark .modal-container {
+  background-color: var(--dark-blue-lighter);
+  color: var(--white);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark .modal-header {
+  border-bottom-color: var(--gray-700);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.dark .modal-title {
+  color: var(--white);
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0.25rem;
+  transition: color 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close-button:hover {
+  color: var(--gray-900);
+}
+
+.dark .modal-close-button:hover {
+  color: var(--white);
+}
+
+.modal-body {
+  padding: 1.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Project details */
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+.dark .project-description {
+  color: var(--gray-300);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  padding: 0.35rem 0.75rem;
+  background-color: var(--primary-100);
+  color: var(--primary-700);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dark .project-tag {
+  background-color: rgba(14, 165, 233, 0.2);
+  color: var(--primary-400);
+}
+
+.project-images-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.project-image-thumbnail {
+  height: 100px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project-image-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.project-image-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.view-more-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.dark .view-more-images {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.view-carousel-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-500);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.view-carousel-button:hover {
+  background-color: var(--primary-600);
+}
+
+.view-more-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  background-color: var(--primary-50);
+  color: var(--primary-600);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-more-button:hover {
+  background-color: var(--primary-100);
+}
+
+.dark .view-more-button {
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--primary-400);
+}
+
+.dark .view-more-button:hover {
+  background-color: rgba(14, 165, 233, 0.2);
+}
+
+/* Image Carousel */
+.carousel-container {
+  background-color: var(--white);
+  max-width: 64rem;
+}
+
+.dark .carousel-container {
+  background-color: var(--dark-blue-lighter);
+}
+
+.carousel-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  padding: 1rem;
+}
+
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.carousel-arrow-left,
+.carousel-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  z-index: 10;
+}
+
+.carousel-arrow-left {
+  left: 1rem;
+}
+
+.carousel-arrow-right {
+  right: 1rem;
+}
+
+/* Timeline styles */
+.timeline-item {
+  background-color: var(--white);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark .timeline-item {
+  background-color: var(--dark-blue-lighter);
+}
+
+.timeline-details {
+  margin-top: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.timeline-detail-item {
+  background-color: var(--gray-50);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.timeline-detail-item:hover {
+  transform: translateY(-0.25rem);
+}
+
+.dark .timeline-detail-item {
+  background-color: var(--dark-blue);
+}
+
+/* Description Modal Content */
+.description-content {
+  color: var(--gray-800);
+  line-height: 1.7;
+}
+
+.dark .description-content {
+  color: var(--gray-200);
+}
+
+.description-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--gray-900);
+}
+
+.dark .description-content h3 {
+  color: var(--white);
+}
+
+.description-content h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--gray-800);
+}
+
+.dark .description-content h4 {
+  color: var(--gray-100);
+}
+
+.description-content p {
+  margin-bottom: 1rem;
+}
+
+.description-content ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.description-content li {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-detail-modal {
+  background-color: var(--gray-50);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid var(--primary-500);
+}
+
+.dark .timeline-detail-modal {
+  background-color: var(--dark-blue);
+  border-left-color: var(--primary-400);
+}
+
+.timeline-detail-modal h4 {
+  font-weight: 600;
+  margin-top: 0 !important;
+  margin-bottom: 0.5rem;
+  color: var(--gray-900);
+  font-size: 1.125rem !important;
+}
+
+.dark .timeline-detail-modal h4 {
+  color: var(--white);
+}
+
+.timeline-detail-modal p {
+  margin-bottom: 0;
+  color: var(--gray-700);
+}
+
+.dark .timeline-detail-modal p {
+  color: var(--gray-400);
+}
+
+/* Add this to your carousel.css file */
+
+/* Sticky Notes Grid */
+.sticky-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+@media (min-width: 640px) {
+  .sticky-notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .sticky-notes-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

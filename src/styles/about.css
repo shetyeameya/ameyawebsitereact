@@ -1,0 +1,258 @@
+/* About Section with Photo Gallery */
+
+/* Personal Gallery Section */
+.personal-gallery-section {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  position: relative;
+}
+
+.personal-gallery-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 1px;
+  background-color: var(--gray-300);
+}
+
+.dark .personal-gallery-section::before {
+  background-color: var(--gray-700);
+}
+
+/* Photo Gallery */
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .photo-gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Polaroid Effect */
+.polaroid-photo {
+  background-color: white;
+  padding: 1rem 1rem 2.5rem 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.dark .polaroid-photo {
+  background-color: var(--gray-800);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.polaroid-photo:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+.polaroid-photo:nth-child(3n) {
+  transform: rotate(1deg);
+}
+
+.polaroid-photo:nth-child(5n) {
+  transform: rotate(-3deg);
+}
+
+.polaroid-photo:hover {
+  transform: rotate(0) scale(1.05);
+  z-index: 10;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid-image-container {
+  overflow: hidden;
+  height: 0;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  position: relative;
+}
+
+.polaroid-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-photo:hover .polaroid-image {
+  transform: scale(1.05);
+}
+
+.polaroid-caption {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-family: "Indie Flower", cursive, "Comic Sans MS", sans-serif;
+  font-size: 1rem;
+  color: var(--gray-800);
+  line-height: 1.2;
+}
+
+.dark .polaroid-caption {
+  color: var(--gray-200);
+}
+
+/* Tape effect */
+.polaroid-photo::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.dark .polaroid-photo::before {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Photo Modal */
+.photo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.photo-modal-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark .photo-modal-container {
+  background-color: var(--gray-800);
+}
+
+.photo-modal-close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--gray-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-modal-close-button:hover {
+  color: var(--gray-900);
+  background-color: var(--gray-100);
+}
+
+.dark .photo-modal-close-button:hover {
+  color: var(--gray-100);
+  background-color: var(--gray-700);
+}
+
+.photo-modal-content {
+  overflow: hidden;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-modal-image {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 0.25rem;
+}
+
+.photo-modal-caption {
+  margin-top: 1rem;
+  font-size: 1.125rem;
+  text-align: center;
+  color: var(--gray-800);
+  font-family: "Indie Flower", cursive, "Comic Sans MS", sans-serif;
+}
+
+.dark .photo-modal-caption {
+  color: var(--gray-200);
+}
+
+.photo-modal-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.photo-modal-nav-button {
+  background-color: var(--gray-100);
+  color: var(--gray-700);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.photo-modal-nav-button:hover {
+  background-color: var(--primary-100);
+  color: var(--primary-600);
+}
+
+.dark .photo-modal-nav-button {
+  background-color: var(--gray-700);
+  color: var(--gray-300);
+}
+
+.dark .photo-modal-nav-button:hover {
+  background-color: var(--primary-900);
+  color: var(--primary-400);
+}
+
+/* Import cursive font for captions */
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
