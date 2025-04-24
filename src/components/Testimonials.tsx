@@ -27,28 +27,28 @@ const testimonials: Testimonial[] = [
     role: "HOD Electronics",
     company: "KC College of Engineering",
     quote:
-      "Ameya is one of the most talented developers I've had the pleasure to work with. His deep understanding of React and attention to detail made our project a huge success.",
+      "Post completion of the project, I found Ameya to be more matured and responsible. I noted that he worked better under pressure situations. Besides he got a taste of how things work in the real world and also the changing technologies. Given his maturity and the confidence to complete an undertaken task, I did not hesitate in assigning him a task.",
     pdfUrl: require("../Assets/Images/poornimalor.jpg"),
     colorVariant: "blue",
   },
   {
     id: 2,
-    author: "Michael Rodriguez",
-    role: "CTO",
-    company: "StartupX",
+    author: "Aditi Kamble",
+    role: "Prof",
+    company: "KC College of Engineering",
     quote:
-      "Working with Ameya transformed our development process. His expertise in React Native helped us deliver a flawless mobile experience ahead of schedule.",
-    pdfUrl: "/pdfs/testimonial2.pdf",
+      "I admired Ameya's ability to clearly express his thoughts in speech and writing. He never hesitated to clear even his slightest of doubt while at the same time he never hesitated to put forth his views. He believed in open communication. Moreover his practical books as well as assignments were satisfactory and were submitted well before time.",
+    pdfUrl: require("../Assets/Images/aditilor.jpg"),
     colorVariant: "green",
   },
   {
     id: 3,
-    author: "Jennifer Chen",
-    role: "Engineering Lead",
-    company: "InnovateNow",
+    author: "Vaishali N Kilarikar",
+    role: "Assistant Prof",
+    company: "KC College of Engineering",
     quote:
-      "Ameya's problem-solving skills are exceptional. He consistently delivered high-quality code and was a valuable team player who elevated everyone around him.",
-    pdfUrl: "/pdfs/testimonial3.pdf",
+      "Undoubtedly Ameya managed to strike a fine balance between his academics and involvement in other activities. He held responsible positions of both a Cultural Secretary and General Coordinator during his tenure in the college.",
+    pdfUrl: require("../Assets/Images/vaishalilor.jpg"),
     colorVariant: "pink",
   },
 ];
@@ -91,6 +91,12 @@ interface PDFModalProps {
 }
 
 const PDFModal: React.FC<PDFModalProps> = ({ pdfUrl, onClose }) => {
+  // Check if the URL is an image (from require)
+  const isImage =
+    typeof pdfUrl === "string"
+      ? pdfUrl.match(/\.(jpeg|jpg|gif|png)$/) !== null
+      : true;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div
@@ -104,10 +110,20 @@ const PDFModal: React.FC<PDFModalProps> = ({ pdfUrl, onClose }) => {
           </button>
         </div>
         <div className="modal-body pdf-container">
-          <iframe
-            src={`${pdfUrl}#toolbar=0&navpanes=0`}
-            className="pdf-iframe"
-          ></iframe>
+          {isImage ? (
+            <div className="image-container">
+              <img
+                src={pdfUrl}
+                alt="Testimonial letter"
+                className="testimonial-image"
+              />
+            </div>
+          ) : (
+            <iframe
+              src={`${pdfUrl}#toolbar=0&navpanes=0`}
+              className="pdf-iframe"
+            ></iframe>
+          )}
         </div>
         <div className="modal-footer">
           <a
@@ -130,44 +146,47 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
-  videoUrl = "/videos/intro.mp4",
+  videoUrl = "https://youtu.be/osERXSGy_yY",
   posterImage = "/images/video-poster.jpg",
 }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  // Remove any query parameters and get the base URL
+  const cleanVideoUrl = videoUrl.split("?")[0];
 
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+  // Check if the URL is a YouTube URL
+  const isYouTubeUrl =
+    cleanVideoUrl.includes("youtu.be") || cleanVideoUrl.includes("youtube.com");
+
+  // Extract YouTube video ID
+  const getYouTubeID = (url: string): string => {
+    if (url.includes("youtu.be/")) {
+      return url.split("youtu.be/")[1];
+    } else if (url.includes("youtube.com/watch?v=")) {
+      return url.split("v=")[1].split("&")[0];
+    } else if (url.includes("youtube.com/embed/")) {
+      return url.split("embed/")[1];
     }
+    return "";
   };
 
-  const handleVideoEnd = () => {
-    setIsPlaying(false);
-  };
+  const videoId = isYouTubeUrl ? getYouTubeID(cleanVideoUrl) : "";
 
   return (
     <div className="video-player-container">
       <div className="video-wrapper">
-        <video
-          ref={videoRef}
-          src={videoUrl}
-          poster={posterImage}
-          onEnded={handleVideoEnd}
-          className="video-element"
-        ></video>
-        <button className="video-control" onClick={togglePlay}>
-          {isPlaying ? <Pause size={48} /> : <Play size={48} />}
-        </button>
+        <iframe
+          className="youtube-embed"
+          src={require("../Assets/Images/video.mp4")}
+          title="Cricket Keeping"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
       </div>
       <h3 className="video-title">Meet Ameya</h3>
       <p className="video-description">
-        A short introduction to my work, passion, and approach to development.
+        A short video of me playing cricket, my passion and how I like to spend
+        my weekends.
       </p>
     </div>
   );

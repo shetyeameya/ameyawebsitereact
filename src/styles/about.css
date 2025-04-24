@@ -119,7 +119,7 @@
   position: absolute;
   width: 40%;
   height: 0.75rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: var(--primary-color);
   top: -0.25rem;
   left: 50%;
   transform: translateX(-50%) rotate(-2deg);

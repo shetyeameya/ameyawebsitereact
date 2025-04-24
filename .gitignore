@@ -398,3 +398,29 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+firebase.json
+.firebaserc
+
+# Build output (adjust if you're using dist/ instead of build/)
+build/
+dist/
+
+# Functions (if you're using Firebase Cloud Functions)
+functions/node_modules/
+functions/lib/
+functions/.env
+functions/.env.local
+functions/.env.*.local
+functions/firebase-debug.log
+
+# Emulators
+*.emulator-*
+
+# Firebase Hosting GitHub workflow (optional, if generated)
+.github/workflows/firebase-hosting-merge.yml
+

@@ -69,6 +69,11 @@ html.dark .section-description {
   overflow: hidden;
 }
 
+html.dark .video-player-container {
+  background-color: var(--dark-blue-lighter);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
 .video-wrapper {
   position: relative;
   width: 100%;
@@ -84,6 +89,15 @@ html.dark .section-description {
   height: 100%;
   object-fit: cover;
   background-color: var(--gray-900);
+}
+
+.youtube-embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
 .video-control {
@@ -116,11 +130,19 @@ html.dark .section-description {
   color: var(--gray-900);
 }
 
+html.dark .video-title {
+  color: var(--white);
+}
+
 .video-description {
   padding: 0 1.5rem 1.5rem;
   margin: 0;
   color: var(--gray-600);
   font-size: 1rem;
+}
+
+html.dark .video-description {
+  color: var(--gray-400);
 }
 
 /* Testimonials Styles */
@@ -316,9 +338,17 @@ html.dark .author-role {
   transition: all 0.2s ease;
 }
 
+html.dark .testimonial-indicator {
+  background-color: var(--gray-600);
+}
+
 .testimonial-indicator.active {
   background-color: var(--primary-color);
   transform: scale(1.2);
+}
+
+html.dark .testimonial-indicator.active {
+  background-color: var(--primary-400);
 }
 
 /* PDF Modal */
@@ -334,6 +364,7 @@ html.dark .author-role {
   align-items: center;
   z-index: 1000;
   backdrop-filter: blur(4px);
+  padding: 1rem;
 }
 
 .modal-container {
@@ -348,6 +379,17 @@ html.dark .author-role {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+html.dark .modal-container {
+  background-color: var(--dark-blue-lighter);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.pdf-modal {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+
 .modal-header {
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -356,11 +398,19 @@ html.dark .author-role {
   border-bottom: 1px solid var(--gray-200);
 }
 
+html.dark .modal-header {
+  border-bottom-color: var(--gray-700);
+}
+
 .modal-title {
   font-size: 1.25rem;
   font-weight: 600;
   margin: 0;
   color: var(--gray-900);
+}
+
+html.dark .modal-title {
+  color: var(--white);
 }
 
 .modal-close-button {
@@ -381,20 +431,67 @@ html.dark .author-role {
   color: var(--gray-700);
 }
 
+html.dark .modal-close-button:hover {
+  background-color: var(--gray-700);
+  color: var(--white);
+}
+
 .modal-body {
   flex: 1;
   overflow: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 65vh;
 }
 
 .pdf-container {
-  height: 70vh;
-  max-height: 600px;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--gray-100);
+}
+
+html.dark .pdf-container {
+  background-color: var(--gray-800);
 }
 
 .pdf-iframe {
   width: 100%;
   height: 100%;
   border: none;
+  background-color: var(--white);
+}
+
+html.dark .pdf-iframe {
+  background-color: var(--gray-100);
+}
+
+/* Image display for testimonials */
+.testimonial-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--white);
+  overflow-y: auto;
+  max-width: 100%;
+}
+
+.modal-body.pdf-container {
+  overflow-y: auto;
+}
+
+html.dark .testimonial-image {
+  background-color: var(--gray-100);
 }
 
 .modal-footer {
@@ -402,6 +499,12 @@ html.dark .author-role {
   border-top: 1px solid var(--gray-200);
   display: flex;
   justify-content: flex-end;
+  background-color: var(--white);
+}
+
+html.dark .modal-footer {
+  border-top-color: var(--gray-700);
+  background-color: var(--dark-blue-lighter);
 }
 
 .download-button {
@@ -412,6 +515,8 @@ html.dark .author-role {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .download-button:hover {
@@ -442,7 +547,12 @@ html.dark .author-role {
     top: -1.5rem;
   }
 
-  .pdf-container {
-    height: 50vh;
+  .modal-container {
+    width: 95%;
+    height: 80vh;
+  }
+
+  .testimonial-image {
+    max-height: 60vh;
   }
 }

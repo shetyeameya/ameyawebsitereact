@@ -56,7 +56,7 @@ function App() {
         <Skills />
         {/* <About /> */}
         <Enhancedabout />
-        {/* <TestimonialsMedia /> */}
+        <TestimonialsMedia />
         <Contact />
       </main>
       <Footer />

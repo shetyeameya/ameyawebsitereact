@@ -6,15 +6,19 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .education-slide {
   width: 100%;
-  height: 320px;
+  height: auto;
+  min-height: 300px;
+  max-height: 400px;
   border-radius: 0.75rem;
-  overflow: hidden;
+  overflow: auto;
   background-color: var(--gray-50);
   transition: all 0.3s ease;
+  padding-bottom: 2rem; /* Add padding to prevent text overlap with controls */
 }
 
 .dark .education-slide {
@@ -25,6 +29,7 @@
   padding: 1.5rem;
   height: 100%;
   overflow-y: auto;
+  margin-bottom: 1rem; /* Add margin to prevent overlap with controls */
 }
 
 .education-title {
@@ -42,6 +47,7 @@
   font-size: 1rem;
   line-height: 1.6;
   color: var(--gray-700);
+  padding-bottom: 1.5rem; /* Increased padding to avoid text being covered by controls */
 }
 
 .dark .education-content {
@@ -89,7 +95,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0.5rem;
+  padding: 0;
+  position: relative;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Left arrow positioning */
+.carousel-arrow-left {
+  position: relative;
+  left: 0;
+}
+
+/* Right arrow positioning */
+.carousel-arrow-right {
+  position: relative;
+  right: 0;
 }
 
 .carousel-arrow {
@@ -105,6 +126,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  z-index: 5;
 }
 
 .dark .carousel-arrow {
@@ -123,13 +145,23 @@
   color: var(--primary-400);
 }
 
+/* Fix for carousel indicator container */
 .carousel-indicators {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 0.5rem;
   background-color: var(--primary-dark);
-  border-radius: 10%;
-  border: 2px solid transparent;
-  padding: 1%;
+  border-radius: 1rem; /* Rounded corners */
+  padding: 0.5rem 1rem; /* Increased horizontal padding */
+  width: auto; /* Auto width instead of percentage */
+  margin: 0 auto; /* Center horizontally */
+  box-sizing: content-box; /* Ensure padding is added to width */
+  max-width: fit-content; /* Make container only as wide as needed */
+}
+
+.dark .carousel-indicators {
+  background-color: var(--primary-700);
 }
 
 .carousel-indicator {
@@ -140,6 +172,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 0 0.25rem; /* Add horizontal margin for proper spacing */
 }
 
 .dark .carousel-indicator {
@@ -410,8 +443,9 @@
   object-fit: contain;
 }
 
-.carousel-arrow-left,
-.carousel-arrow-right {
+/* Fix for project image carousel arrows */
+.carousel-content .carousel-arrow-left,
+.carousel-content .carousel-arrow-right {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -420,11 +454,11 @@
   z-index: 10;
 }
 
-.carousel-arrow-left {
+.carousel-content .carousel-arrow-left {
   left: 1rem;
 }
 
-.carousel-arrow-right {
+.carousel-content .carousel-arrow-right {
   right: 1rem;
 }
 
@@ -544,8 +578,6 @@
 .dark .timeline-detail-modal p {
   color: var(--gray-400);
 }
-
-/* Add this to your carousel.css file */
 
 /* Sticky Notes Grid */
 .sticky-notes-grid {

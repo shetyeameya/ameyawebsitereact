@@ -107,11 +107,30 @@ const About: React.FC = () => {
               </div>
               <div className="carousel-controls">
                 <button
+                  className="carousel-arrow carousel-arrow-left"
+                  onClick={goToPrevious}
+                >
+                  <ChevronLeft size={24} />
+                </button>
+                <button
                   className="carousel-arrow carousel-arrow-right"
                   onClick={goToNext}
                 >
                   <ChevronRight size={24} />
                 </button>
+              </div>
+
+              {/* Add indicators if they're not already in your code */}
+              <div className="carousel-indicators">
+                {educationData.map((_: any, index: any) => (
+                  <button
+                    key={index}
+                    className={`carousel-indicator ${
+                      index === currentSlide ? "active" : "inactive"
+                    }`}
+                    onClick={() => goToSlide(index)}
+                  ></button>
+                ))}
               </div>
             </div>
           </div>
